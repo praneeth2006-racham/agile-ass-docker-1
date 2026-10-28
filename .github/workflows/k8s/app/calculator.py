@@ -4,20 +4,30 @@ def add(a, b):
 def subtract(a, b):
     return a - b
 
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        return "Error: Division by zero!"
+    return a / b
+
 def menu():
-    print("\n--- Calculator Menu (Push 1) ---")
+    print("\n--- Calculator Menu (Push 2) ---")
     print("1. Addition")
     print("2. Subtraction")
-    print("3. Exit")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Exit")
 
 if __name__ == "__main__":
     while True:
         menu()
-        choice = input("Enter choice (1-3): ")
-        if choice == '3':
+        choice = input("Enter choice (1-5): ")
+        if choice == '5':
             print("Exiting...")
             break
-        if choice in ('1', '2'):
+        if choice in ('1', '2', '3', '4'):
             try:
                 num1 = float(input("Enter first number: "))
                 num2 = float(input("Enter second number: "))
@@ -25,6 +35,10 @@ if __name__ == "__main__":
                     print(f"Result: {add(num1, num2)}")
                 elif choice == '2':
                     print(f"Result: {subtract(num1, num2)}")
+                elif choice == '3':
+                    print(f"Result: {multiply(num1, num2)}")
+                elif choice == '4':
+                    print(f"Result: {divide(num1, num2)}")
             except ValueError:
                 print("Invalid input! Please enter numbers.")
         else:
